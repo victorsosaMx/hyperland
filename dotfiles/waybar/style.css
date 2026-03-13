@@ -1,0 +1,212 @@
+/* Catppuccin Mocha palette */
+@define-color base   #1E1E2E;
+@define-color mantle #181825;
+@define-color crust  #1E1E2E;
+@define-color surface0 #313244;
+@define-color surface1 #45475A;
+@define-color overlay0 #6C7086;
+@define-color text   #CDD6F4;
+@define-color subtext0 #A6ADC8;
+@define-color blue   #89B4FA;
+@define-color mauve  #CBA6F7;
+@define-color red    #F38BA8;
+@define-color green  #A6E3A1;
+@define-color yellow #F9E2AF;
+@define-color peach  #FAB387;
+
+* {
+    font-family: "JetBrainsMono Nerd Font Mono", "JetBrains Mono", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: @base;
+    border-radius: 12px;
+    padding: 2px 8px;
+    border: 1px solid @surface0;
+}
+
+/* Arch icon */
+#custom-arch {
+    color: @blue;
+    font-size: 18px;
+    padding: 0 8px 0 4px;
+}
+
+/* Workspaces */
+#workspaces {
+    margin: 0 4px;
+}
+
+#workspaces button {
+    padding: 4px 14px;
+    color: @subtext0;
+    background: @surface0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    min-width: 32px;
+}
+
+#workspaces button:hover {
+    background: @surface0;
+    color: @text;
+}
+
+@keyframes ws-active {
+    0%   { background-color: #89B4FA; }
+    50%  { background-color: #CBA6F7; }
+    100% { background-color: #89B4FA; }
+}
+
+@keyframes ws-active {
+    0%   { background-color: #89B4FA; }
+    50%  { background-color: #CBA6F7; }
+    100% { background-color: #89B4FA; }
+}
+
+#workspaces button.active {
+    background-color: #89B4FA;
+    color: @base;
+    font-weight: bold;
+    animation: ws-active 3s linear infinite;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    color: @base;
+}
+
+/* Window title */
+#window {
+    color: @subtext0;
+    padding: 0 8px;
+    font-style: italic;
+}
+
+/* Clock */
+#clock {
+    color: @blue;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* CPU */
+#cpu {
+    color: @peach;
+    padding: 0 8px;
+}
+
+#cpu.warning { color: @yellow; }
+#cpu.critical { color: @red; }
+
+/* Memory */
+#memory {
+    color: @mauve;
+    padding: 0 8px;
+}
+
+/* Network */
+#network {
+    color: @green;
+    padding: 0 8px;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+/* Audio */
+#pulseaudio {
+    color: @blue;
+    padding: 0 8px;
+}
+
+#pulseaudio.muted {
+    color: @overlay0;
+}
+
+/* Battery */
+#battery {
+    color: @green;
+    padding: 0 8px;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    to { color: @base; background: @red; }
+}
+
+/* Tray */
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+    border-radius: 6px;
+}
+
+/* Arch icon */
+#custom-arch {
+    color: @blue;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+/* Tooltip (calendario y otros) */
+tooltip {
+    background: @mantle;
+    border: 1px solid @surface0;
+    border-radius: 14px;
+    padding: 20px 28px;
+    min-width: 520px;
+}
+
+tooltip label {
+    color: @text;
+    font-family: "JetBrains Mono";
+    font-size: 16px;
+}
+
+/* Power button */
+#custom-swaync {
+    padding: 0 15px;
+}
+
+#custom-power {
+    color: @red;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#custom-power:hover {
+    color: @base;
+    background: @red;
+    border-radius: 8px;
+}

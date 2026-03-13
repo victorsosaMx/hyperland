@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Arch-Update
+Comment=An update notifier & applier for Arch Linux
+Icon=arch-update-blue
+Type=Application
+Terminal=false
+Exec=kitty -e arch-update
+Categories=Utility

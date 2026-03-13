@@ -1,0 +1,143 @@
+;; ── CLOCK ──────────────────────────────────────────────
+(defpoll hours :interval "1s"
+  `date +"%H"`)
+
+(defpoll minutes :interval "1s"
+  `date +"%M"`)
+
+(defpoll date :interval "60s"
+  `date +"%a %d %b"`)
+
+(defwidget clock-widget []
+  (box :class "clock-box"
+       :orientation "v"
+       :space-evenly false
+       :halign "end"
+       :valign "end"
+    (box :class "clock-time-row"
+         :orientation "h"
+         :space-evenly false
+         :halign "end"
+         :valign "baseline"
+      (label :class "clock-hh" :text hours)
+      (label :class "clock-colon" :text ":")
+      (label :class "clock-mm" :text minutes))
+    (label :class "clock-date" :text date :halign "end")))
+
+(defwindow clock
+  :monitor 1
+  :geometry (geometry
+    :x "24px"
+    :y "24px"
+    :width "360px"
+    :height "120px"
+    :anchor "bottom right")
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  :transparent true
+  (clock-widget))
+
+;; ── SYSMONITOR ──────────────────────────────────────────
+
+(defpoll fetch-os    :interval "100000s" `scripts/fetch os`)
+(defpoll fetch-wm    :interval "100000s" `scripts/fetch wm`)
+(defpoll fetch-shell :interval "100000s" `scripts/fetch shell`)
+
+;; Datos RAM
+(defpoll ram-detail :interval "3s"
+  `free -m | awk 'NR==2{printf "%.1f / %.0f GB", $3/1024, $2/1024}'`)
+
+;; Datos CPU
+(defpoll cpu-detail :interval "10s"
+  `nproc | awk '{printf "%d cores", $1}'`)
+
+;; Datos discos
+(defpoll disk-root-used :interval "30s"
+  `df -h / | awk 'NR==2{print $3" / "$2}'`)
+
+(defpoll disk-win-pct :interval "60s"
+  `df /run/media/Windows 2>/dev/null | awk 'NR==2{print int($3/$2*100)}' || echo 0`)
+
+(defpoll disk-win-used :interval "60s"
+  `df -h /run/media/Windows 2>/dev/null | awk 'NR==2{print $3" / "$2}' || echo "N/A"`)
+
+(defpoll disk-storage-pct :interval "60s"
+  `df /run/media/Storage 2>/dev/null | awk 'NR==2{print int($3/$2*100)}' || echo 0`)
+
+(defpoll disk-storage-used :interval "60s"
+  `df -h /run/media/Storage 2>/dev/null | awk 'NR==2{print $3" / "$2}' || echo "N/A"`)
+
+;; Barra horizontal para CPU/RAM
+(defwidget stat-row [name pct detail fill-class]
+  (box :class "stat-row"
+       :orientation "v"
+       :space-evenly false
+    (label :class "stat-header" :text "${name}  ${detail}")
+    (scale :class "stat-bar ${fill-class}"
+           :value pct
+           :min 0
+           :max 100
+           :orientation "h"
+           :sensitive false)))
+
+(defwidget disk-row [icon name pct fill-class]
+  (box :class "stat-row"
+       :orientation "v"
+       :space-evenly false
+    (label :class "stat-header" :text "${icon} ${name}  ${pct}%")
+    (scale :class "stat-bar ${fill-class}"
+           :value pct
+           :min 0
+           :max 100
+           :orientation "h"
+           :sensitive false)))
+
+;; Widget principal
+(defwidget sysmonitor []
+  (box :class "monitor-box"
+       :orientation "v"
+       :space-evenly false
+    (box :class "monitor-header" :space-evenly false :halign "start" :valign "center"
+      (label :class "fetch-logo" :text "󰣇" :valign "center")
+      (box :class "fetch-titles" :orientation "v" :space-evenly false :valign "center"
+        (label :class "fetch-label" :text "os" :halign "start")
+        (label :class "fetch-label" :text "wm" :halign "start")
+        (label :class "fetch-label" :text "sh" :halign "start"))
+      (box :class "fetch-values" :orientation "v" :space-evenly false :valign "center"
+        (label :class "fetch-value" :text "${fetch-os}"    :truncate false :halign "start")
+        (label :class "fetch-value" :text "${fetch-wm}"    :truncate false :halign "start")
+        (label :class "fetch-value" :text "${fetch-shell}" :truncate false :halign "start")))
+    (box :class "monitor-divider")
+    (stat-row :name "CPU"
+              :pct  {round(EWW_CPU.avg, 0)}
+              :detail "${round(EWW_CPU.avg, 0)}%  ${cpu-detail}"
+              :fill-class "fill-blue")
+    (stat-row :name "RAM"
+              :pct  {round(EWW_RAM.used_mem_perc, 0)}
+              :detail {ram-detail}
+              :fill-class "fill-purple")
+    (box :class "monitor-divider")
+    (label :class "storage-label" :text "STORAGE" :truncate false)
+    (disk-row :icon "󰋊" :name "ROOT"
+              :pct {round(EWW_DISK["/"].used_perc, 0)}
+              :fill-class "fill-green")
+    (disk-row :icon "󰍲" :name "WIN"
+              :pct {disk-win-pct}
+              :fill-class "fill-yellow")
+    (disk-row :icon "󰋩" :name "NAS"
+              :pct {disk-storage-pct}
+              :fill-class "fill-orange")))
+
+(defwindow sysinfo
+  :monitor 0
+  :geometry (geometry
+    :x "10px"
+    :y "8px"
+    :width "325px"
+    :height "320px"
+    :anchor "top right")
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  (sysmonitor))
