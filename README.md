@@ -287,6 +287,12 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
 
 ---
 
+## Screenshots
+
+![Sidebar](Screenshots/6.png)
+
+---
+
 ## Créditos e inspiración
 
 Este setup no partió de cero — me apoyé en los siguientes proyectos:
