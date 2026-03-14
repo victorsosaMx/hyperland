@@ -306,7 +306,7 @@
         (image :path "${ICONS}/ytube.png"       :image-width 30 :image-height 30)))
 ))
 
-;; Main sidebar container
+;; Main sidebar container - monitor grande (con clima)
 (defwidget sidebar-content []
   (box :class "sb-main" :orientation "v" :space-evenly false
     (sb-header)
@@ -318,6 +318,21 @@
     (sb-storage)
     (sb-sep)
     (sb-weather)
+    (sb-sep)
+    (sb-network)
+    (sb-sep)
+    (sb-launchers)))
+
+;; Sidebar compacto - monitor pequeño (sin clima)
+(defwidget sidebar-content-compact []
+  (box :class "sb-main" :orientation "v" :space-evenly false
+    (sb-header)
+    (box :class "monitor-divider")
+    (sb-cal)
+    (sb-sep)
+    (sb-system)
+    (box :class "monitor-divider")
+    (sb-storage)
     (sb-sep)
     (sb-network)
     (sb-sep)
@@ -335,3 +350,19 @@
   :exclusive false
   :focusable false
   (sidebar-content))
+
+;; Monitor 0 compacto (resolución < 1440p)
+(defwindow sidebar-compact
+  :monitor 0
+  :geometry (geometry
+    :x "10px"
+    :y "8px"
+    :width "380px"
+    :height "90%"
+    :anchor "top right")
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  (sidebar-content-compact))
+
+

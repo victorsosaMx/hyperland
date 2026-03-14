@@ -1,35 +1,38 @@
-/* Keybinds Viewer */
+/* Keybinds Viewer - native 2 columns */
 
 @import "~/.config/rofi/config.rasi"
 
 window {
-  width: 700px;
+  width:  1200px;
+  height: 860px;
 }
 
 mainbox {
-  padding: 12px;
+  padding: 16px;
   spacing: 10px;
   children: [ "inputbar", "listview" ];
 }
 
 inputbar {
-  margin: 0;
+  margin: 0 0 4px 0;
   border-radius: 8px;
 }
 
 entry {
-  placeholder: "search";
+  placeholder: "buscar atajo...";
 }
 
 listview {
-  columns: 1;
-  lines: 12;
+  columns:      2;
+  lines:        26;
   fixed-height: true;
-  spacing: 4px;
+  spacing:      2px;
+  scrollbar:    false;
 }
 
 element {
-  padding: 6px 10px;
+  padding:      3px 14px;
+  border-radius: 4px;
 }
 
 element-icon {
@@ -37,5 +40,5 @@ element-icon {
 }
 
 element-text {
-  font: "CaskaydiaCove Nerd Font Mono 11";
+  font: "JetBrainsMono Nerd Font 10.5";
 }
