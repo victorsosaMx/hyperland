@@ -426,9 +426,13 @@ if [[ -f "$EWW_TPL" ]]; then
 
   # Restart eww to apply new CSS
   eww kill >/dev/null 2>&1 || true
-  sleep 0.3
-  eww daemon >/dev/null 2>&1 &
   sleep 0.5
+  eww daemon >/dev/null 2>&1 &
+  # Wait for daemon to be ready before opening windows
+  for i in $(seq 1 15); do
+    eww ping >/dev/null 2>&1 && break
+    sleep 0.2
+  done
   eww open clock >/dev/null 2>&1 || true
   eww open sidebar >/dev/null 2>&1 || true
 fi

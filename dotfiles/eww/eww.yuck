@@ -303,7 +303,8 @@
         (image :path "${ICONS}/thunderbird.svg" :image-width 30 :image-height 30))
       (button :class "sb-launcher-btn" :tooltip "YouTube"
               :onclick "sh -c 'XAPP_FORCE_GTKWINDOW_ICON=\"/home/vhs/Imágenes/icons/ytube.png\" firefox --class WebApp-YouTube3674 --name WebApp-YouTube3674 --profile /home/vhs/.local/share/ice/firefox/YouTube3674 --no-remote \"https://www.youtube.com\"' &"
-        (image :path "${ICONS}/ytube.png"       :image-width 30 :image-height 30)))))
+        (image :path "${ICONS}/ytube.png"       :image-width 30 :image-height 30)))
+))
 
 ;; Main sidebar container
 (defwidget sidebar-content []

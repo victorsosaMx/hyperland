@@ -52,7 +52,7 @@ Setup personal de Hyprland sobre Arch Linux.
 |---|---|
 | `rofi-wayland` | Launcher (Spotlight + Launchpad) |
 | `mako` | Notificaciones |
-| `eww` | Widgets de escritorio (reloj + sidebar con sysmonitor, clima, red, launchers) |
+| `eww` | Widgets de escritorio (reloj + sidebar con sysmonitor, clima, red y launchers de apps) |
 | `dolphin` | File manager |
 | `plasma-integration` | Integración KDE para apps Qt fuera de Plasma |
 | `kde-cli-tools` | Herramientas KDE (Open With, etc.) |
@@ -142,6 +142,7 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
 | `Super + Tab` | Vista Exposé (todos los workspaces) |
 | `Super + V` | Historial del portapapeles |
 | `Super + Delete` / `Super + L` | Bloquear pantalla |
+| `Super + S` | Guía de atajos (cheatsheet) |
 | `Super + F1` | Theme picker (cambia tema completo) |
 | `Super + W` | Wallpaper picker (wallpapers del tema activo) |
 | `Super + Shift + E` | Power menu |
@@ -157,6 +158,14 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
 | `Super + Ctrl + flechas` | Redimensionar (mantener presionado) |
 | `Super + mouse izq` | Mover ventana flotante |
 | `Super + mouse der` | Redimensionar flotante |
+
+### Ventanas — Minimizar
+| Atajo | Acción |
+|---|---|
+| `Super + M` | Minimizar ventana activa |
+| `Super + N` | Restaurar última ventana minimizada |
+| `Super + Ctrl + M` | Minimizar todas las ventanas |
+| `Super + Ctrl + N` | Restaurar todas las ventanas |
 
 ### Workspaces
 | Atajo | Acción |
@@ -198,7 +207,10 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │   ├── modules/               # Config modular (autostart, keybindings, rules, etc.)
     │   └── scripts/
     │       ├── gtk.sh             # Aplicar temas GTK
-    │       └── bar-switch.sh      # Lanza waybar o barra alternativa según argumento
+    │       ├── bar-switch.sh      # Lanza waybar o barra alternativa según argumento
+    │       ├── minimize-all.sh    # Minimizar todas las ventanas (Super+Ctrl+M)
+    │       ├── unminimize.sh      # Restaurar última ventana minimizada (Super+N)
+    │       └── unminimize-all.sh  # Restaurar todas las ventanas (Super+Ctrl+N)
     ├── waybar/
     │   ├── config.jsonc           # Módulos (solo DP-1), reloj con fecha y calendario, swaync
     │   ├── config                 # Config alternativa (sin swaync)
@@ -309,7 +321,8 @@ Este setup no partió de cero — me apoyé en los siguientes proyectos:
 
 - **plasma-integration requerido** — sin él, `kdeglobals` no aplica fuentes/iconos a apps Qt
 - **eww usa eww.css** (no eww.scss) — el compilador SCSS añade `@charset` que GTK rechaza
-- **eww sidebar** — abre con `eww open sidebar`; incluye reloj, calendario, CPU/RAM/temp circular, almacenamiento, clima, red y launchers. Los scripts en `~/.config/scripts/` son requeridos
+- **eww sidebar** — abre con `eww open sidebar`; incluye reloj, calendario, anillos CPU/RAM/temp, barras de almacenamiento, clima, red y launchers de apps (Firefox, Dolphin, Kitty, VSCode, Antigravity, VMware, Teams, ChatGPT, Claude, Thunderbird, YouTube). Los scripts en `~/.config/scripts/` son requeridos. El CSS se genera desde `theme-switcher/templates/eww.css.tpl` — editar ahí para cambios permanentes
+- **eww sidebar — íconos de launchers** — almacenados en `~/Imágenes/icons/eww/` (no incluidos en dotfiles por ser assets personales)
 - **bar-switch.sh** — wrapper que lanza waybar o una barra alternativa; usado en autostart como `bar-switch.sh waybar`
 - **Dolphin Open With vacío** — fix: symlink de `plasma-applications.menu` a `applications.menu`
 - **QT_QPA_PLATFORMTHEME=kde** — requiere plasma-integration instalado para funcionar
