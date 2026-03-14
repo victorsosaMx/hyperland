@@ -156,6 +156,7 @@
 (defpoll sb-disk     :interval "30s" :initial "0" `$HOME/.config/scripts/disk`)
 (defpoll sb-tempe    :interval "5s"  :initial "0" `$HOME/.config/scripts/tempe`)
 (defpoll sb-ip       :interval "1h"   `ip -br address | grep UP | grep -v lo | awk '{print $3}' | cut -d/ -f1 | head -1`)
+(deflisten sb-net    :initial '{"down": 0, "up": 0}'  `$HOME/.config/scripts/network`)
 
 (defpoll sb-wtemp    :interval "1h" :initial "..." `$HOME/.config/scripts/Weather.sh current_temp`)
 (defpoll sb-wdesc    :interval "1h"               `$HOME/.config/scripts/Weather.sh weather_desc`)
@@ -241,19 +242,19 @@
     (label :class "sb-net-ip" :text "${sb-ip}")
     (box :orientation "h" :space-evenly false :spacing 6 :halign "center"
       (label :text "⬆" :class "sb-net-up-icon")
-      (box :width 110
+      (box :width 200
         (graph :class "sb-net-graph-up"
                :thickness 2
-               :value {round(EWW_NET.wlan0.NET_UP / 1024, 1)}
-               :time-range "2m" :min 0 :max 101
+               :value {sb-net.up}
+               :time-range "30s" :min 0
                :dynamic true :line-style "round")))
     (box :orientation "h" :space-evenly false :spacing 6 :halign "center"
       (label :text "⬇" :class "sb-net-down-icon")
-      (box :width 110
+      (box :width 200
         (graph :class "sb-net-graph-down"
                :thickness 2
-               :value {round(EWW_NET.wlan0.NET_DOWN / 1024, 1)}
-               :time-range "2m" :min 0 :max 101
+               :value {sb-net.down}
+               :time-range "30s" :min 0
                :dynamic true :line-style "round")))))
 
 ;; Divider
