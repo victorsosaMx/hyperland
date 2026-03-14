@@ -13,7 +13,7 @@ Setup personal de Hyprland sobre Arch Linux.
 | **DE base** | Hyprland standalone (usa componentes Qt/KDE sin el DE completo) |
 | **GPU** | AMD Radeon RX 6600 |
 | **Monitores** | 2560x1440 @ 144Hz · scale 1.1 (DP-1) + 1920x1080 @ 100Hz (HDMI-A-1) |
-| **Temas** | Catppuccin · Catppuccin Latte · Dracula · Dynamic (Matugen) · Everforest · Flick0 Aurora · GitHub Dark · Graphite · Kanagawa · Nord · Tokyo Night · Yorha + más |
+| **Temas** | 32 temas — Catppuccin · Catppuccin Latte · Dracula · Dynamic (Matugen) · Everforest · Flick0 Aurora · GitHub Dark · Graphite · Kanagawa · Nord · Tokyo Night · Yorha · Arc Aurora Dark · Sweet Mars · Austral Marine · Austral Azure · Very Darkest · Midoriya · Arch family (14 variantes) |
 | **Íconos** | Slot-Beauty-Dark-Icons |
 | **Cursor** | Catppuccin Mocha Dark |
 | **Fuentes** | Product Sans · JetBrains Mono Nerd Font · Orbitron |
@@ -263,7 +263,7 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │   ├── thumb-gen.sh           # Generador de miniaturas para pickers (caché en ~/.cache/theme-picker/)
     │   ├── templates/             # Templates globales (kitty, rofi, eww, wlogout, swaync)
     │   │   └── rofi/              # Templates del picker de temas y wallpapers
-    │   └── themes/                # 13 temas incluidos
+    │   └── themes/                # 32 temas incluidos
     │       ├── catppuccin/        #   paleta mocha
     │       ├── catppuccin-latte/  #   variante clara
     │       ├── dracula/
@@ -275,7 +275,27 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │       ├── kanagawa/
     │       ├── nord/
     │       ├── tokyonight/
-    │       └── yorha/
+    │       ├── yorha/
+    │       ├── arc-aurora-dark/   #   verde oscuro + esmeralda, wallpaper Aurora
+    │       ├── sweet-mars/        #   oscuro, accent salmon-rojo + cyan
+    │       ├── austral-marine/    #   claro, fondos teal-blanco + verde turquesa
+    │       ├── austral-azure/     #   claro, fondos azul-blanco + azure
+    │       ├── very-darkest/      #   negro puro + azul eléctrico
+    │       ├── midoriya/          #   verde oscuro forestal + esmeralda
+    │       ├── arch/              #   claro, accent índigo
+    │       ├── arch-bandw/        #   claro B&W, accent índigo
+    │       ├── arch-dark/         #   azul oscuro profundo, accent índigo
+    │       ├── arch-light/        #   claro, accent índigo
+    │       ├── arch-lightly/      #   oscuro, accent índigo
+    │       ├── arch-magenta/      #   oscuro, accent magenta
+    │       ├── arch-manjaro/      #   claro, accent teal Manjaro
+    │       ├── arch-manjaro-dark/ #   oscuro medio, accent teal Manjaro
+    │       ├── arch-manjaroish/   #   oscuro, accent teal Manjaro
+    │       ├── arch-manjaro-light/#   claro, accent teal Manjaro
+    │       ├── arch-purple/       #   oscuro, accent púrpura
+    │       ├── arch-smooth/       #   oscuro, accent índigo
+    │       ├── arch-vampire/      #   oscuro, accent rojo sangre
+    │       └── arch-yellow/       #   oscuro, accent amarillo dorado
     │           (cada tema contiene colors.json, theme.json, templates/)
     ├── matugen/                   # Config ejemplo para tema dinámico
     │   ├── config.toml
