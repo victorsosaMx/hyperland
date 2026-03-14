@@ -295,6 +295,7 @@ Este setup no partió de cero — me apoyé en los siguientes proyectos:
 |---|---|
 | [ML4W Dotfiles](https://ml4w.com/) | Inspiración general de estructura y flujo de configuración Hyprland |
 | [enes-less/theme-switcher](https://github.com/enes-less/theme-switcher) | Base del sistema de temas — templates, estructura de `colors.json`/`theme.json` y motor `apply-theme.sh` |
+| [bluebyt/Wayfire-dots](https://github.com/bluebyt/Wayfire-dots/tree/main) | Fork del sidebar de eww — diseño y estructura base del panel lateral |
 
 ---
 
