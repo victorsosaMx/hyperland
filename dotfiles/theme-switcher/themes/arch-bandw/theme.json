@@ -1,0 +1,15 @@
+{
+  "name": "Arch B&W",
+  "id": "arch-bandw",
+  "default_wallpaper": "/home/vhs/Imágenes/wallpapers/black-and-white-3840x2160-21293.jpg",
+  "fonts": {
+    "family": "JetBrainsMono Nerd Font",
+    "family_bold": "JetBrainsMono Nerd Font Bold"
+  },
+  "hypr": {
+    "border_size": 2,
+    "gaps_out": 15,
+    "rounding": 12,
+    "blur": { "enabled": true, "size": 6, "passes": 3, "vibrancy": 0.15 }
+  }
+}
