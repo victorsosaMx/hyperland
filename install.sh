@@ -85,6 +85,15 @@ PACMAN_PKGS=(
     # Terminal
     kitty
 
+    # Shell
+    fish
+
+    # Fetch
+    fastfetch
+
+    # JSON parsing (required by theme-switcher)
+    jq
+
     # File manager
     dolphin
 
@@ -99,7 +108,7 @@ PACMAN_PKGS=(
     ttf-font-awesome
 
     # Power menu
-    #wlogout
+    wlogout
 
     # MIME handler
     handlr-regex
@@ -139,6 +148,15 @@ AUR_PKGS=(
     # Widgets
     eww
 
+    # Shell prompt
+    oh-my-posh
+
+    # Window switcher
+    hyprswitch
+
+    # Update notifier
+    arch-update
+
     # Fuentes
     ttf-orbitron
 
@@ -154,7 +172,7 @@ AUR_PKGS=(
     swaync
 
     # Tema dinámico desde wallpaper (opcional, requerido para el tema 'dynamic')
-    matugen
+    matugen-bin
 )
 
 yay -S --needed --noconfirm "${AUR_PKGS[@]}"

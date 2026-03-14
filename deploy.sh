@@ -62,6 +62,7 @@ deploy "$DOTFILES_DIR/hypr/scripts"        ~/.config/hypr/scripts
 chmod +x ~/.config/hypr/wallpaper.sh
 chmod +x ~/.config/hypr/hotcorner.sh
 chmod +x ~/.config/hypr/scripts/gtk.sh
+chmod +x ~/.config/hypr/scripts/bar-switch.sh
 
 # =============================================================================
 # 2. WAYBAR
@@ -133,10 +134,12 @@ deploy "$DOTFILES_DIR/mako/config" ~/.config/mako/config
 # =============================================================================
 info "Desplegando eww..."
 
-deploy "$DOTFILES_DIR/eww/eww.yuck"          ~/.config/eww/eww.yuck
-deploy "$DOTFILES_DIR/eww/eww.css"           ~/.config/eww/eww.css
-deploy "$DOTFILES_DIR/eww/scripts/fetch"     ~/.config/eww/scripts/fetch
+deploy "$DOTFILES_DIR/eww/eww.yuck"                    ~/.config/eww/eww.yuck
+deploy "$DOTFILES_DIR/eww/eww.css"                     ~/.config/eww/eww.css
+deploy "$DOTFILES_DIR/eww/scripts/fetch"               ~/.config/eww/scripts/fetch
+deploy "$DOTFILES_DIR/eww/scripts/fastfetch_info.py"   ~/.config/eww/scripts/fastfetch_info.py
 chmod +x ~/.config/eww/scripts/fetch
+chmod +x ~/.config/eww/scripts/fastfetch_info.py
 
 # =============================================================================
 # 6. WLOGOUT (power menu)
@@ -145,6 +148,7 @@ info "Desplegando wlogout..."
 
 deploy "$DOTFILES_DIR/wlogout/layout"    ~/.config/wlogout/layout
 deploy "$DOTFILES_DIR/wlogout/style.css" ~/.config/wlogout/style.css
+deploy "$DOTFILES_DIR/wlogout/icons"     ~/.config/wlogout/icons
 
 # =============================================================================
 # 7. XDG PORTALS
@@ -243,6 +247,21 @@ done
 deploy "$DOTFILES_DIR/scripts/theme-picker.sh"     ~/.local/bin/theme-picker
 deploy "$DOTFILES_DIR/scripts/wallpaper-picker.sh" ~/.local/bin/wallpaper-picker
 chmod +x ~/.local/bin/theme-picker ~/.local/bin/wallpaper-picker
+
+# Sidebar/eww helper scripts
+mkdir -p ~/.config/scripts
+deploy "$DOTFILES_DIR/scripts/cpu"        ~/.config/scripts/cpu
+deploy "$DOTFILES_DIR/scripts/disk"       ~/.config/scripts/disk
+deploy "$DOTFILES_DIR/scripts/memory"     ~/.config/scripts/memory
+deploy "$DOTFILES_DIR/scripts/tempe"      ~/.config/scripts/tempe
+deploy "$DOTFILES_DIR/scripts/display.sh" ~/.config/scripts/display.sh
+deploy "$DOTFILES_DIR/scripts/uptime.sh"  ~/.config/scripts/uptime.sh
+deploy "$DOTFILES_DIR/scripts/updates.sh" ~/.config/scripts/updates.sh
+deploy "$DOTFILES_DIR/scripts/Weather.sh" ~/.config/scripts/Weather.sh
+chmod +x ~/.config/scripts/cpu ~/.config/scripts/disk ~/.config/scripts/memory \
+         ~/.config/scripts/tempe ~/.config/scripts/display.sh \
+         ~/.config/scripts/uptime.sh ~/.config/scripts/updates.sh \
+         ~/.config/scripts/Weather.sh
 
 # Matugen (tema dinámico) — copiar config de ejemplo si no existe
 if [ ! -f ~/.config/matugen/config.toml ]; then

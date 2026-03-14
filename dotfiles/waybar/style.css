@@ -1,18 +1,18 @@
 /* Catppuccin Mocha palette */
-@define-color base   #1E1E2E;
-@define-color mantle #181825;
-@define-color crust  #1E1E2E;
-@define-color surface0 #313244;
-@define-color surface1 #45475A;
-@define-color overlay0 #6C7086;
-@define-color text   #CDD6F4;
-@define-color subtext0 #A6ADC8;
-@define-color blue   #89B4FA;
-@define-color mauve  #CBA6F7;
-@define-color red    #F38BA8;
-@define-color green  #A6E3A1;
-@define-color yellow #F9E2AF;
-@define-color peach  #FAB387;
+@define-color base   #0d1117;
+@define-color mantle #010409;
+@define-color crust  #0d1117;
+@define-color surface0 #161b22;
+@define-color surface1 #21262d;
+@define-color overlay0 #30363d;
+@define-color text   #c9d1d9;
+@define-color subtext0 #8b949e;
+@define-color blue   #bc8cff;
+@define-color mauve  #58a6ff;
+@define-color red    #ec8e2c;
+@define-color green  #79c0ff;
+@define-color yellow #e3b341;
+@define-color peach  #fdac54;
 
 * {
     font-family: "JetBrainsMono Nerd Font Mono", "JetBrains Mono", monospace;
@@ -30,7 +30,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background: @base;
+    background: rgba(13,17,23,0.95);
     border-radius: 12px;
     padding: 2px 8px;
     border: 1px solid @surface0;
@@ -65,19 +65,19 @@ window#waybar {
 }
 
 @keyframes ws-active {
-    0%   { background-color: #89B4FA; }
-    50%  { background-color: #CBA6F7; }
-    100% { background-color: #89B4FA; }
+    0%   { background-color: #bc8cff; }
+    50%  { background-color: #58a6ff; }
+    100% { background-color: #bc8cff; }
 }
 
 @keyframes ws-active {
-    0%   { background-color: #89B4FA; }
-    50%  { background-color: #CBA6F7; }
-    100% { background-color: #89B4FA; }
+    0%   { background-color: #bc8cff; }
+    50%  { background-color: #58a6ff; }
+    100% { background-color: #bc8cff; }
 }
 
 #workspaces button.active {
-    background-color: #89B4FA;
+    background-color: #bc8cff;
     color: @base;
     font-weight: bold;
     animation: ws-active 3s linear infinite;

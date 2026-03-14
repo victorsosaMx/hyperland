@@ -23,6 +23,7 @@
         "memory",
         "cpu",
         "battery",
+        "custom/swaync",
         "custom/power"
     ],
     "custom/arch": {
@@ -117,5 +118,21 @@
         "interval": 3600,
         "tooltip": true,
         "on-click": "flatpak run io.github.amit9838.mousam"
+    },
+    "custom/swaync": {
+        "format": "<span font='JetBrainsMono Nerd Font Mono 16'>{icon}</span>",
+        "format-icons": {
+            "none": "󰂚",
+            "notification": "󰂜",
+            "dnd-none": "󰂛",
+            "dnd-notification": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true,
+        "tooltip": false
     }
 }

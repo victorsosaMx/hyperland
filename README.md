@@ -26,7 +26,7 @@ Setup personal de Hyprland sobre Arch Linux.
 | Paquete | Rol |
 |---|---|
 | `hyprland` | Compositor Wayland |
-| `waybar` | Barra de estado (solo en DP-1) |
+| `waybar` | Barra de estado (solo en DP-1) — switchable con `bar-switch.sh` |
 | `swww` | Wallpaper con transiciones |
 | `hyprlock` | Pantalla de bloqueo |
 | `hypridle` | Daemon de inactividad |
@@ -52,7 +52,7 @@ Setup personal de Hyprland sobre Arch Linux.
 |---|---|
 | `rofi-wayland` | Launcher (Spotlight + Launchpad) |
 | `mako` | Notificaciones |
-| `eww` | Widgets de escritorio (reloj + sysmonitor) |
+| `eww` | Widgets de escritorio (reloj + sidebar con sysmonitor, clima, red, launchers) |
 | `dolphin` | File manager |
 | `plasma-integration` | Integración KDE para apps Qt fuera de Plasma |
 | `kde-cli-tools` | Herramientas KDE (Open With, etc.) |
@@ -194,10 +194,15 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │   ├── hypridle.conf          # Daemon de inactividad
     │   ├── hyprlock.conf          # Pantalla de bloqueo
     │   ├── wallpaper.sh           # Script de wallpaper (swww)
-    │   └── hotcorner.sh           # Hot corner → Exposé
+    │   ├── hotcorner.sh           # Hot corner → Exposé
+    │   ├── modules/               # Config modular (autostart, keybindings, rules, etc.)
+    │   └── scripts/
+    │       ├── gtk.sh             # Aplicar temas GTK
+    │       └── bar-switch.sh      # Lanza waybar o barra alternativa según argumento
     ├── waybar/
-    │   ├── config.jsonc           # Módulos (solo DP-1), reloj con fecha y calendario
-    │   └── style.css              # Estilos Catppuccin Mocha
+    │   ├── config.jsonc           # Módulos (solo DP-1), reloj con fecha y calendario, swaync
+    │   ├── config                 # Config alternativa (sin swaync)
+    │   └── style.css              # Estilos (tematizados por theme-switcher)
     ├── rofi/
     │   ├── config.rasi            # Config base
     │   ├── spotlight.rasi         # Tema Spotlight (Super+A)
@@ -206,8 +211,11 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │   ├── style.css              # Estilo Aurora (glass dark + glow)
     │   └── launch.sh             # Script Alt+Tab con detección de monitor
     ├── eww/
-    │   ├── eww.yuck               # Widgets: reloj + sysmonitor con barras
-    │   └── eww.css                # Estilos (CSS puro, sin SCSS)
+    │   ├── eww.yuck               # Widgets: reloj + sidebar (sysmonitor, clima, red, launchers)
+    │   ├── eww.css                # Estilos (CSS puro, sin SCSS)
+    │   └── scripts/
+    │       ├── fetch              # Script de datos del sistema para el widget
+    │       └── fastfetch_info.py  # Info del sistema para el widget de fetch
     ├── kitty/
     │   ├── kitty.conf
     │   ├── kitty-cursor-trail.conf
@@ -232,7 +240,8 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │   └── config
     ├── wlogout/
     │   ├── layout                 # 3 columnas sin espacios vacíos
-    │   └── style.css
+    │   ├── style.css
+    │   └── icons/                 # SVGs personalizados para cada acción (lock, logout, suspend, hibernate, reboot, shutdown)
     ├── arch-update/
     │   └── arch-update.conf       # AURHelper=yay
     ├── applications/
@@ -261,7 +270,12 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │   └── templates/colors.json.tpl
     ├── scripts/
     │   ├── theme-picker.sh        # UI rofi (grid con miniaturas) para cambiar tema (Super+F1)
-    │   └── wallpaper-picker.sh    # UI rofi (grid visual) para cambiar wallpaper (Super+W)
+    │   ├── wallpaper-picker.sh    # UI rofi (grid visual) para cambiar wallpaper (Super+W)
+    │   ├── cpu / memory / disk / tempe  # Métricas del sistema para eww sidebar
+    │   ├── display.sh             # Nombre del WM activo
+    │   ├── uptime.sh              # Uptime del sistema
+    │   ├── updates.sh             # Número de actualizaciones pendientes
+    │   └── Weather.sh             # Datos del clima para eww sidebar
     ├── kdeglobals                 # Fuente y tema de íconos para apps KDE
     ├── qt6ct/
     │   └── qt6ct.conf
@@ -288,6 +302,8 @@ Este setup no partió de cero — me apoyé en los siguientes proyectos:
 
 - **plasma-integration requerido** — sin él, `kdeglobals` no aplica fuentes/iconos a apps Qt
 - **eww usa eww.css** (no eww.scss) — el compilador SCSS añade `@charset` que GTK rechaza
+- **eww sidebar** — abre con `eww open sidebar`; incluye reloj, calendario, CPU/RAM/temp circular, almacenamiento, clima, red y launchers. Los scripts en `~/.config/scripts/` son requeridos
+- **bar-switch.sh** — wrapper que lanza waybar o una barra alternativa; usado en autostart como `bar-switch.sh waybar`
 - **Dolphin Open With vacío** — fix: symlink de `plasma-applications.menu` a `applications.menu`
 - **QT_QPA_PLATFORMTHEME=kde** — requiere plasma-integration instalado para funcionar
 - **Monitores** — si los nombres cambian al reinstalar, correr `hyprctl monitors` y actualizar `hyprland.conf`

@@ -430,7 +430,7 @@ if [[ -f "$EWW_TPL" ]]; then
   eww daemon >/dev/null 2>&1 &
   sleep 0.5
   eww open clock >/dev/null 2>&1 || true
-  eww open sysinfo >/dev/null 2>&1 || true
+  eww open sidebar >/dev/null 2>&1 || true
 fi
 
 # --------- Rofi ----------
