@@ -78,6 +78,7 @@ Setup personal de Hyprland sobre Arch Linux.
 | Plugin | Rol |
 |---|---|
 | `hyprexpo` | Vista general de workspaces (Exposé) |
+| `hyprfocus` | Animación al cambiar foco entre ventanas (slide) |
 
 ---
 
@@ -353,3 +354,5 @@ Este setup no partió de cero — me apoyé en los siguientes proyectos:
 - El theme switcher genera `~/.config/hypr/generated-theme.conf` — controla bordes, blur y colores de Hyprland en tiempo real
 - **Tema Dynamic** — aplica con `apply-theme.sh dynamic`. Abre un selector de wallpaper, genera la paleta con matugen y aplica el tema completo. Requiere `matugen` instalado y `~/.config/matugen/` configurado (ver `dotfiles/matugen/`)
 - **Rofi Symphony** — módulo extra en `~/.config/rofi/symphony/` con pickers para clipboard, emoji, powermenu, wifi y más
+- **hyprpm plugins** — `hyprexpo` y `hyprfocus` gestionados con hyprpm (estado en `/var/cache/hyprpm/`, requiere sudo). Si dejan de funcionar tras actualizar Hyprland: `sudo hyprpm update && hyprpm reload -n`
+- **follow_mouse = 1** — el foco sigue al cursor al pasar sobre ventanas
