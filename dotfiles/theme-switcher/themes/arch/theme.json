@@ -1,7 +1,7 @@
 {
   "name": "Arch",
   "id": "arch",
-  "default_wallpaper": "/home/vhs/Imágenes/wallpapers/adwaita-d.png",
+  "default_wallpaper": "wallpapers/drool-l.svg",
   "fonts": {
     "family": "JetBrainsMono Nerd Font",
     "family_bold": "JetBrainsMono Nerd Font Bold"

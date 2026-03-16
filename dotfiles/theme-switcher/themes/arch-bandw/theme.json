@@ -1,7 +1,7 @@
 {
   "name": "Arch B&W",
   "id": "arch-bandw",
-  "default_wallpaper": "/home/vhs/Imágenes/wallpapers/black-and-white-3840x2160-21293.jpg",
+  "default_wallpaper": "wallpapers/landscape-abstract-neon.jpg",
   "fonts": {
     "family": "JetBrainsMono Nerd Font",
     "family_bold": "JetBrainsMono Nerd Font Bold"

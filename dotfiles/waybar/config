@@ -29,6 +29,7 @@
     ],
     "custom/arch": {
         "format": "<span font='JetBrainsMono Nerd Font Mono 18'>󰣇</span>",
+        "on-click": "vsfetch",
         "tooltip": false
     },
     "hyprland/workspaces": {
@@ -137,7 +138,7 @@
         "tooltip": false
     },
     "custom/updates": {
-        "exec": "count=$(grep -c '.' ~/.local/state/arch-update/last_updates_check 2>/dev/null || echo 0); [ \"$count\" -gt 0 ] && echo '{\"text\":\"󰚰 '\"$count\"'\",\"class\":\"pending\"}' || echo '{\"text\":\"󰚰 0\",\"class\":\"updated\"}'",
+        "exec": "count=$(cat ~/.local/state/arch-update/last_updates_check 2>/dev/null | wc -l); [ \"$count\" -gt 0 ] && echo '{\"text\":\"󰚰 '\"$count\"'\",\"class\":\"pending\"}' || echo '{\"text\":\"󰚰 0\",\"class\":\"updated\"}'",
         "return-type": "json",
         "interval": 60,
         "tooltip": false,

@@ -1,7 +1,7 @@
 {
   "name": "Arch Manjaro",
   "id": "arch-manjaro",
-  "default_wallpaper": "/home/vhs/Imágenes/wallpapers/adwaita-l.jpg",
+  "default_wallpaper": "wallpapers/wave.png",
   "fonts": {
     "family": "JetBrainsMono Nerd Font",
     "family_bold": "JetBrainsMono Nerd Font Bold"

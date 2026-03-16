@@ -2,7 +2,10 @@
 font=Product Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [Icons]
-Theme=Slot-Beauty-Dark-Icons
+Theme=FairyWren_Light
+
+[KDE]
+widgetStyle=Windows
 
 [KFileDialog Settings]
 Allow Expansion=false

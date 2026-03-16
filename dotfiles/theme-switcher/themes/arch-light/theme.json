@@ -1,7 +1,7 @@
 {
   "name": "Arch Light",
   "id": "arch-light",
-  "default_wallpaper": "/home/vhs/Imágenes/wallpapers/adwaita-l.jpg",
+  "default_wallpaper": "wallpapers/adwaita-d.png",
   "fonts": {
     "family": "JetBrainsMono Nerd Font",
     "family_bold": "JetBrainsMono Nerd Font Bold"

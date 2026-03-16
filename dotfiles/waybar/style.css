@@ -1,18 +1,18 @@
 /* Catppuccin Mocha palette */
-@define-color base   #ffffff;
-@define-color mantle #f8f8f8;
-@define-color crust  #ffffff;
-@define-color surface0 #eaeef4;
-@define-color surface1 #dde3ed;
-@define-color overlay0 #8f9399;
-@define-color text   #313133;
-@define-color subtext0 #666a73;
-@define-color blue   #2980b9;
-@define-color mauve  #2eb398;
-@define-color red    #ed254e;
-@define-color green  #27ae60;
-@define-color yellow #fdbc4b;
-@define-color peach  #ff6a00;
+@define-color base   #0d1117;
+@define-color mantle #010409;
+@define-color crust  #0d1117;
+@define-color surface0 #161b22;
+@define-color surface1 #21262d;
+@define-color overlay0 #30363d;
+@define-color text   #c9d1d9;
+@define-color subtext0 #8b949e;
+@define-color blue   #bc8cff;
+@define-color mauve  #58a6ff;
+@define-color red    #ec8e2c;
+@define-color green  #79c0ff;
+@define-color yellow #e3b341;
+@define-color peach  #fdac54;
 
 * {
     font-family: "JetBrainsMono Nerd Font Mono", "JetBrains Mono", monospace;
@@ -30,7 +30,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(255,255,255,0.95);
+    background: rgba(13,17,23,0.95);
     border-radius: 12px;
     padding: 2px 8px;
     border: 1px solid @surface0;
@@ -50,13 +50,16 @@ window#waybar {
 
 #workspaces button {
     padding: 4px 14px;
-    color: @subtext0;
-    background: @surface0;
+    color: @text;
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
     border-radius: 8px;
     font-size: 14px;
     font-weight: bold;
     transition: all 0.2s ease;
     min-width: 32px;
+    box-shadow: none;
 }
 
 #workspaces button:hover {
@@ -65,19 +68,19 @@ window#waybar {
 }
 
 @keyframes ws-active {
-    0%   { background-color: #2980b9; }
-    50%  { background-color: #2eb398; }
-    100% { background-color: #2980b9; }
+    0%   { background-color: #bc8cff; }
+    50%  { background-color: #58a6ff; }
+    100% { background-color: #bc8cff; }
 }
 
 @keyframes ws-active {
-    0%   { background-color: #2980b9; }
-    50%  { background-color: #2eb398; }
-    100% { background-color: #2980b9; }
+    0%   { background-color: #bc8cff; }
+    50%  { background-color: #58a6ff; }
+    100% { background-color: #bc8cff; }
 }
 
 #workspaces button.active {
-    background-color: #2980b9;
+    background-color: #bc8cff;
     color: @base;
     font-weight: bold;
     animation: ws-active 3s linear infinite;
@@ -90,9 +93,15 @@ window#waybar {
 
 /* Window title */
 #window {
-    color: @subtext0;
+    color: @text;
     padding: 0 8px;
     font-style: italic;
+}
+
+/* Weather */
+#custom-weather {
+    color: @text;
+    padding: 0 8px;
 }
 
 /* Clock */

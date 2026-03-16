@@ -277,7 +277,7 @@
               :onclick "dolphin &"
         (image :path "${ICONS}/Dolphin.svg"     :image-width 30 :image-height 30))
       (button :class "sb-launcher-btn" :tooltip "Terminal"
-              :onclick "kitty &"
+              :onclick "kitty --directory ~ &"
         (image :path "${ICONS}/Terminal.svg"    :image-width 30 :image-height 30))
       (button :class "sb-launcher-btn" :tooltip "VSCode"
               :onclick "code &"

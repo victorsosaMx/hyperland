@@ -50,13 +50,16 @@ window#waybar {
 
 #workspaces button {
     padding: 4px 14px;
-    color: @subtext0;
-    background: @surface0;
+    color: @text;
+    background: transparent;
+    background-color: transparent;
+    background-image: none;
     border-radius: 8px;
     font-size: 14px;
     font-weight: bold;
     transition: all 0.2s ease;
     min-width: 32px;
+    box-shadow: none;
 }
 
 #workspaces button:hover {
@@ -90,9 +93,15 @@ window#waybar {
 
 /* Window title */
 #window {
-    color: @subtext0;
+    color: @text;
     padding: 0 8px;
     font-style: italic;
+}
+
+/* Weather */
+#custom-weather {
+    color: @text;
+    padding: 0 8px;
 }
 
 /* Clock */

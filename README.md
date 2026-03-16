@@ -58,6 +58,7 @@ Setup personal de Hyprland sobre Arch Linux.
 | `kde-cli-tools` | Herramientas KDE (Open With, etc.) |
 | `pavucontrol` | Control de volumen |
 | `handlr-regex` | Gestor de apps por defecto |
+| `vsFetch` | Panel gráfico "About This Computer" — se abre desde el logo de Arch en waybar |
 
 ### Screenshots y portapapeles
 | Paquete | Rol |
@@ -102,6 +103,24 @@ Setup personal de Hyprland sobre Arch Linux.
 ```
 
 Copia todos los configs, hace backup automático de existentes (`.bak`) y aplica fixes necesarios.
+
+### Paso 2.5 — Instalar vsFetch
+
+Panel gráfico de información del sistema (se integra al click del logo Arch en waybar):
+
+```bash
+git clone https://github.com/victorsosaMx/vsFetch.git
+cd vsFetch
+chmod +x vsfetch
+cp vsfetch ~/.local/bin/vsfetch
+```
+
+Dependencias:
+```bash
+sudo pacman -S python-gobject papirus-icon-theme ttf-jetbrains-mono-nerd
+```
+
+---
 
 ### Paso 3 — Pasos manuales post-deploy
 
@@ -336,6 +355,7 @@ Este setup no partió de cero — me apoyé en los siguientes proyectos:
 | [ML4W ml4w-install-system-updates](https://github.com/mylinuxforwork/dotfiles) | Base del script `install-updates.sh` — banner figlet + diálogo gum para confirmación antes de actualizar |
 | [enes-less/theme-switcher](https://github.com/enes-less/theme-switcher) | Base del sistema de temas — templates, estructura de `colors.json`/`theme.json` y motor `apply-theme.sh` |
 | [bluebyt/Wayfire-dots](https://github.com/bluebyt/Wayfire-dots/tree/main) | Fork del sidebar de eww — diseño y estructura base del panel lateral |
+| [vsFetch](https://github.com/victorsosaMx/vsFetch) | Panel gráfico "About This Computer" — Python + GTK3, proyecto propio. Integrado al logo de Arch en waybar |
 
 ---
 

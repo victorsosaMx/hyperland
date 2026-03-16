@@ -1,7 +1,7 @@
 {
   "name": "Arc Aurora Dark",
   "id": "arc-aurora-dark",
-  "default_wallpaper": "/home/vhs/Imágenes/wallpapers/backgrounds_Aurora-by-Johny-Goerend.jpg",
+  "default_wallpaper": "wallpapers/backgrounds_Aurora-by-Johny-Goerend.jpg",
   "fonts": {
     "family": "JetBrainsMono Nerd Font",
     "family_bold": "JetBrainsMono Nerd Font Bold"

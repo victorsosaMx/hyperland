@@ -1,7 +1,7 @@
 {
   "name": "Arch Manjaro Dark",
   "id": "arch-manjaro-dark",
-  "default_wallpaper": "/home/vhs/Imágenes/wallpapers/backgrounds_porioni_dark.jpg",
+ "default_wallpaper": "wallpapers/wave2.png",
   "fonts": {
     "family": "JetBrainsMono Nerd Font",
     "family_bold": "JetBrainsMono Nerd Font Bold"

@@ -1,0 +1,38 @@
+# Backups generados por deploy.sh
+*.bak
+*.bak2
+*.backup
+*.pre-modularization
+
+# Archivos generados en tiempo real
+dotfiles/hypr/generated-theme.conf
+dotfiles/hypr/.active_bar
+dotfiles/theme-switcher/current-theme.json
+dotfiles/theme-switcher/themes/*/current-wallpaper.txt
+
+# Wallpapers (binarios, no se versionan)
+dotfiles/theme-switcher/themes/*/wallpapers/
+dotfiles/hypr/plugins/
+
+# Fish variables (estado local)
+dotfiles/fish/fish_variables
+
+# GTK assets generados
+dotfiles/gtk-4.0/assets/
+dotfiles/gtk-4.0/gtk.css
+dotfiles/gtk-4.0/gtk-dark.css
+
+# Archivos temporales / duplicados
+dotfiles/fastfetch/Copia*
+dotfiles/fastfetch/config1.jsonc
+dotfiles/fastfetch/config_nuevo.jsonc
+dotfiles/hyprswitch/style_1.css
+dotfiles/rofi/config-keybinds.rasi
+dotfiles/kitty/theme.conf
+dotfiles/fontconfig/fonts.conf.back
+
+# Directorios duplicados (artefactos de cp -r anidado)
+dotfiles/hypr/modules/modules/
+dotfiles/hypr/scripts/scripts/
+dotfiles/kitty/themes/themes/
+dotfiles/theme-switcher/themes/*/templates/templates/
