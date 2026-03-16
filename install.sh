@@ -192,7 +192,21 @@ hyprpm enable hyprexpo
 success "hyprexpo instalado y habilitado"
 
 # =============================================================================
-# 4. DIRECTORIOS NECESARIOS
+# 4. VSFETCH
+# =============================================================================
+info "Instalando vsFetch (panel gráfico de info del sistema)..."
+
+VSFETCH_DIR="$(mktemp -d)"
+git clone https://github.com/victorsosaMx/vsFetch.git "$VSFETCH_DIR"
+chmod +x "$VSFETCH_DIR/vsfetch"
+mkdir -p ~/.local/bin
+cp "$VSFETCH_DIR/vsfetch" ~/.local/bin/vsfetch
+rm -rf "$VSFETCH_DIR"
+
+success "vsFetch instalado en ~/.local/bin/vsfetch"
+
+# =============================================================================
+# 5. DIRECTORIOS NECESARIOS
 # =============================================================================
 info "Creando directorios necesarios..."
 
@@ -211,6 +225,7 @@ success "Directorios creados"
 echo ""
 echo "============================================="
 echo "   Instalación completa."
+echo "   vsFetch instalado en ~/.local/bin/vsfetch"
 echo "   Corre ./deploy.sh para aplicar los configs"
 echo "============================================="
 echo ""

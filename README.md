@@ -104,24 +104,6 @@ Setup personal de Hyprland sobre Arch Linux.
 
 Copia todos los configs, hace backup automático de existentes (`.bak`) y aplica fixes necesarios.
 
-### Paso 2.5 — Instalar vsFetch
-
-Panel gráfico de información del sistema (se integra al click del logo Arch en waybar):
-
-```bash
-git clone https://github.com/victorsosaMx/vsFetch.git
-cd vsFetch
-chmod +x vsfetch
-cp vsfetch ~/.local/bin/vsfetch
-```
-
-Dependencias:
-```bash
-sudo pacman -S python-gobject papirus-icon-theme ttf-jetbrains-mono-nerd
-```
-
----
-
 ### Paso 3 — Pasos manuales post-deploy
 
 **Tema Qt (Kvantum):**
