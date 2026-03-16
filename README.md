@@ -333,6 +333,7 @@ Este setup no partió de cero — me apoyé en los siguientes proyectos:
 | Proyecto | Aporte |
 |---|---|
 | [ML4W Dotfiles](https://ml4w.com/) | Inspiración general de estructura y flujo de configuración Hyprland |
+| [ML4W ml4w-install-system-updates](https://github.com/mylinuxforwork/dotfiles) | Base del script `install-updates.sh` — banner figlet + diálogo gum para confirmación antes de actualizar |
 | [enes-less/theme-switcher](https://github.com/enes-less/theme-switcher) | Base del sistema de temas — templates, estructura de `colors.json`/`theme.json` y motor `apply-theme.sh` |
 | [bluebyt/Wayfire-dots](https://github.com/bluebyt/Wayfire-dots/tree/main) | Fork del sidebar de eww — diseño y estructura base del panel lateral |
 
@@ -356,3 +357,5 @@ Este setup no partió de cero — me apoyé en los siguientes proyectos:
 - **Rofi Symphony** — módulo extra en `~/.config/rofi/symphony/` con pickers para clipboard, emoji, powermenu, wifi y más
 - **hyprpm plugins** — `hyprexpo` y `hyprfocus` gestionados con hyprpm (estado en `/var/cache/hyprpm/`, requiere sudo). Si dejan de funcionar tras actualizar Hyprland: `sudo hyprpm update && hyprpm reload -n`
 - **follow_mouse = 1** — el foco sigue al cursor al pasar sobre ventanas
+- **custom/updates en waybar** — módulo en modules-right (antes del volumen) que muestra conteo de updates pendientes. Verde = al día, amarillo = hay updates. Click abre `~/.config/hypr/scripts/install-updates.sh` en kitty (banner figlet + diálogo gum). Propagado a los 32 templates del theme-switcher. El arch-update tray sigue corriendo para notificaciones en segundo plano
+- **arch-update desktop override** — `~/.local/share/applications/arch-update.desktop` sobreescribe el comportamiento del tray para usar el mismo script custom

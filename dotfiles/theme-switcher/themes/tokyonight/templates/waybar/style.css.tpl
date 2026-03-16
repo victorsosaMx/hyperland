@@ -210,3 +210,12 @@ tooltip label {
     background: @red;
     border-radius: 8px;
 }
+
+/* Updates button */
+#custom-updates {
+    color: @green;
+    padding: 0 8px;
+}
+#custom-updates.pending {
+    color: @yellow;
+}

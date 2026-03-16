@@ -154,8 +154,10 @@ AUR_PKGS=(
     # Window switcher
     hyprswitch
 
-    # Update notifier
+    # Update notifier + script de updates interactivo
     arch-update
+    figlet
+    gum
 
     # Fuentes
     ttf-orbitron

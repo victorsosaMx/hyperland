@@ -63,6 +63,7 @@ chmod +x ~/.config/hypr/wallpaper.sh
 chmod +x ~/.config/hypr/hotcorner.sh
 chmod +x ~/.config/hypr/scripts/gtk.sh
 chmod +x ~/.config/hypr/scripts/bar-switch.sh
+chmod +x ~/.config/hypr/scripts/install-updates.sh
 
 # =============================================================================
 # 2. WAYBAR

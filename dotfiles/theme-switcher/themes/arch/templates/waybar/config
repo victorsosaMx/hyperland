@@ -18,6 +18,7 @@
     ],
     "modules-right": [
         "tray",
+        "custom/updates",
         "pulseaudio",
         "network",
         "memory",
@@ -134,5 +135,12 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true,
         "tooltip": false
+    },
+    "custom/updates": {
+        "exec": "count=$(cat ~/.local/state/arch-update/last_updates_check 2>/dev/null | wc -l); [ \"$count\" -gt 0 ] && echo '{\"text\":\"󰚰 '\"$count\"'\",\"class\":\"pending\"}' || echo '{\"text\":\"󰚰 0\",\"class\":\"updated\"}'",
+        "return-type": "json",
+        "interval": 60,
+        "tooltip": false,
+        "on-click": "kitty --class floating-terminal -e ~/.config/hypr/scripts/install-updates.sh"
     }
 }
