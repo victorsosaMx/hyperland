@@ -214,8 +214,8 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │       ├── unminimize.sh      # Restaurar última ventana minimizada (Super+N)
     │       └── unminimize-all.sh  # Restaurar todas las ventanas (Super+Ctrl+N)
     ├── waybar/
-    │   ├── config.jsonc           # Módulos (solo DP-1), reloj con fecha y calendario, swaync
-    │   ├── config                 # Config alternativa (sin swaync)
+    │   ├── config                 # Módulos (solo DP-1), reloj con fecha y calendario, swaync
+    │   ├── scripts/               # Scripts de módulos customizados (weather, updates, etc.)
     │   └── style.css              # Estilos (tematizados por theme-switcher)
     ├── rofi/
     │   ├── config.rasi            # Config base

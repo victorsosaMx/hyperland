@@ -70,8 +70,12 @@ chmod +x ~/.config/hypr/scripts/install-updates.sh
 # =============================================================================
 info "Desplegando Waybar..."
 
-deploy "$DOTFILES_DIR/waybar/config.jsonc" ~/.config/waybar/config.jsonc
-deploy "$DOTFILES_DIR/waybar/style.css"    ~/.config/waybar/style.css
+deploy "$DOTFILES_DIR/waybar/config"    ~/.config/waybar/config
+deploy "$DOTFILES_DIR/waybar/style.css" ~/.config/waybar/style.css
+if [ -d "$DOTFILES_DIR/waybar/scripts" ]; then
+    deploy "$DOTFILES_DIR/waybar/scripts" ~/.config/waybar/scripts
+    chmod +x ~/.config/waybar/scripts/* 2>/dev/null || true
+fi
 
 # =============================================================================
 # 3. ROFI
@@ -129,6 +133,21 @@ deploy "$DOTFILES_DIR/fastfetch/25.jsonc"     ~/.config/fastfetch/25.jsonc
 info "Desplegando Mako..."
 
 deploy "$DOTFILES_DIR/mako/config" ~/.config/mako/config
+
+# =============================================================================
+# SWAYNC (notificaciones)
+# =============================================================================
+info "Desplegando swaync..."
+
+deploy "$DOTFILES_DIR/swaync/config.json" ~/.config/swaync/config.json
+deploy "$DOTFILES_DIR/swaync/style.css"   ~/.config/swaync/style.css
+
+# =============================================================================
+# FONTCONFIG
+# =============================================================================
+info "Desplegando fontconfig..."
+
+deploy "$DOTFILES_DIR/fontconfig/fonts.conf" ~/.config/fontconfig/fonts.conf
 
 # =============================================================================
 # 5. EWW (widgets)
