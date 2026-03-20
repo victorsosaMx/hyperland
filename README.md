@@ -204,6 +204,7 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
 ~/Code/hyperland/
 ├── install.sh
 ├── deploy.sh
+├── compile-plugins.sh
 ├── README.md
 └── dotfiles/
     ├── hypr/
@@ -316,6 +317,11 @@ Deben estar en `~/.local/share/icons/Slot-Beauty-Dark-Icons/`
     │   ├── uptime.sh              # Uptime del sistema
     │   ├── updates.sh             # Número de actualizaciones pendientes
     │   └── Weather.sh             # Datos del clima para eww sidebar
+    ├── swaync/
+    │   ├── config.json            # Config del centro de notificaciones
+    │   └── style.css              # Estilos (tematizados por theme-switcher)
+    ├── fontconfig/
+    │   └── fonts.conf             # Configuración de fuentes del sistema
     ├── kdeglobals                 # Fuente y tema de íconos para apps KDE
     ├── qt6ct/
     │   └── qt6ct.conf

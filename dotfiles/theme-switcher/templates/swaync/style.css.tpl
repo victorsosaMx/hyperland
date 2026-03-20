@@ -179,28 +179,28 @@
 /* ── AI Buttons with Images ─────────────────── */
 
 .widget-buttons-grid > flowbox > flowboxchild:nth-child(5) button {
-  background-image: url("file:///home/vhs/Imágenes/icons/gtp1.png");
+  background-image: url("file://{{home}}/Imágenes/icons/gtp1.png");
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild:nth-child(6) button {
-  background-image: url("file:///home/vhs/Imágenes/icons/claude_tray.png");
+  background-image: url("file://{{home}}/Imágenes/icons/claude_tray.png");
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild:nth-child(7) button {
-  background-image: url("file:///home/vhs/Imágenes/icons/Gemini.svg");
+  background-image: url("file://{{home}}/Imágenes/icons/Gemini.svg");
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild:nth-child(8) button {
-  background-image: url("file:///home/vhs/Imágenes/icons/copilot.png");
+  background-image: url("file://{{home}}/Imágenes/icons/copilot.png");
   background-size: 32px;
   background-repeat: no-repeat;
   background-position: center;

@@ -551,6 +551,7 @@ if [[ -d "$SWAYNC_TPL_DIR" ]]; then
       -e "s/{{bg_rgba}}/$swaync_bg_rgba/g" \
       -e "s/{{surface_rgba}}/$surface_rgba/g" \
       -e "s/{{font_family}}/$font_family/g" \
+      -e "s|{{home}}|$HOME|g" \
       "$SWAYNC_TPL_DIR/style.css.tpl" > "$SWAYNC_OUT_DIR/style.css"
   fi
 

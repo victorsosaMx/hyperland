@@ -6,11 +6,11 @@ STATE="$BASE/current-theme.json"
 THEMES_DIR="$BASE/themes"
 
 theme="$(jq -r '.theme // empty' "$STATE" 2>/dev/null || true)"
-[[ -z "$theme" ]] && exit 1
+[[ -z "$theme" ]] && { notify-send "Wallpaper Picker" "No hay tema activo. Corre apply-theme.sh primero." -i dialog-warning; exit 1; }
 
 THEME_PATH="$THEMES_DIR/$theme"
 WPDIR="$THEME_PATH/wallpapers"
-[[ -d "$WPDIR" ]] || exit 1
+[[ -d "$WPDIR" ]] || { notify-send "Wallpaper Picker" "No hay wallpapers para el tema '$theme'.\nCópialos a:\n$WPDIR" -i dialog-warning; exit 1; }
 
 mapfile -d '' -t files < <(
   find "$WPDIR" -maxdepth 1 -type f \

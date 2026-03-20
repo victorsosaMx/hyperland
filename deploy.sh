@@ -88,10 +88,13 @@ fi
 # =============================================================================
 info "Desplegando Rofi..."
 
-deploy "$DOTFILES_DIR/rofi/config.rasi"    ~/.config/rofi/config.rasi
-deploy "$DOTFILES_DIR/rofi/spotlight.rasi" ~/.config/rofi/spotlight.rasi
-deploy "$DOTFILES_DIR/rofi/launchpad.rasi" ~/.config/rofi/launchpad.rasi
-deploy "$DOTFILES_DIR/rofi/symphony"       ~/.config/rofi/symphony
+deploy "$DOTFILES_DIR/rofi/config.rasi"         ~/.config/rofi/config.rasi
+deploy "$DOTFILES_DIR/rofi/spotlight.rasi"      ~/.config/rofi/spotlight.rasi
+deploy "$DOTFILES_DIR/rofi/launchpad.rasi"      ~/.config/rofi/launchpad.rasi
+deploy "$DOTFILES_DIR/rofi/theme-picker.rasi"   ~/.config/rofi/theme-picker.rasi
+deploy "$DOTFILES_DIR/rofi/wallpaper-grid.rasi" ~/.config/rofi/wallpaper-grid.rasi
+deploy "$DOTFILES_DIR/rofi/config-keybinds.rasi" ~/.config/rofi/config-keybinds.rasi
+deploy "$DOTFILES_DIR/rofi/symphony"            ~/.config/rofi/symphony
 
 # =============================================================================
 # 4. KITTY (terminal)
@@ -356,18 +359,23 @@ echo "============================================="
 echo "   Deploy completo."
 echo ""
 echo "   PASOS FINALES MANUALES:"
-echo "   1. Abre kvantummanager → selecciona tema Kvantum"
-echo "   2. Verifica íconos: Slot-Beauty-Dark-Icons"
+echo "   1. Compilar plugins Hyprland (hyprexpo + hyprfocus):"
+echo "      bash ~/Code/hyperland/compile-plugins.sh"
+echo "   2. Aplicar tema inicial:"
+echo "      ~/.config/theme-switcher/apply-theme.sh catppuccin"
+echo "   3. Tema Dynamic (requiere wallpapers):"
+echo "      Copia wallpapers a ~/.config/theme-switcher/themes/[tema]/wallpapers/"
+echo "      Luego: ~/.config/theme-switcher/apply-theme.sh dynamic"
+echo "   4. Abre kvantummanager → selecciona tema Kvantum"
+echo "   5. Verifica íconos: Slot-Beauty-Dark-Icons"
 echo "      cursor: catppuccin-mocha-dark"
-echo "   3. Fix Dolphin Open With (una vez, con sudo):"
+echo "   6. Fix Dolphin Open With (una vez, con sudo):"
 echo "      sudo ln -s /etc/xdg/menus/plasma-applications.menu \\"
 echo "                 /etc/xdg/menus/applications.menu"
-echo "   4. Instala plasma-integration para fuentes KDE:"
+echo "   7. Instala plasma-integration para fuentes KDE:"
 echo "      sudo pacman -S plasma-integration"
-echo "   5. Primera vez: corre 'hyprctl monitors' para verificar"
-echo "      nombres de monitores (DP-1 y HDMI-A-1)"
-echo "   6. Para hyprswitch: instalar desde AUR con yay -S hyprswitch"
-echo "   7. Tema Dynamic: copia wallpapers a ~/.config/theme-switcher/themes/[tema]/wallpapers/"
-echo "      Luego activa con: apply-theme.sh dynamic"
+echo "   8. Verifica nombres de monitores:"
+echo "      hyprctl monitors"
+echo "      Si difieren de DP-1/HDMI-A-1, editar ~/.config/hypr/monitors.conf"
 echo "============================================="
 echo ""
