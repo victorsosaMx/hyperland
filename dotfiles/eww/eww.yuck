@@ -262,7 +262,7 @@
   (box :class "sb-sep"))
 
 ;; App Launchers
-(defvar ICONS "/home/vhs/Imágenes/icons/eww")
+(defpoll ICONS :interval "8760h" `echo "$HOME/Imágenes/icons/eww"`)
 
 (defwidget sb-launchers []
   (box :class "sb-launchers" :orientation "v" :space-evenly false
@@ -290,7 +290,7 @@
               :onclick "/usr/bin/vmplayer &"
         (image :path "${ICONS}/vmware.png"      :image-width 30 :image-height 30))
       (button :class "sb-launcher-btn" :tooltip "Teams"
-              :onclick "brave --app=\"https://teams.microsoft.com/v2/\" --class=WebApp-MSTeams3980 --user-data-dir=/home/vhs/.local/share/ice/profiles/MSTeams3980 &"
+              :onclick "brave --app=\"https://teams.microsoft.com/v2/\" --class=WebApp-MSTeams3980 --user-data-dir=$HOME/.local/share/ice/profiles/MSTeams3980 &"
         (image :path "${ICONS}/teams.png"       :image-width 30 :image-height 30))
       (button :class "sb-launcher-btn" :tooltip "ChatGPT"
               :onclick "brave --class=webapp-chatgpt --app=https://chatgpt.com &"
@@ -302,7 +302,7 @@
               :onclick "thunderbird &"
         (image :path "${ICONS}/thunderbird.svg" :image-width 30 :image-height 30))
       (button :class "sb-launcher-btn" :tooltip "YouTube"
-              :onclick "sh -c 'XAPP_FORCE_GTKWINDOW_ICON=\"/home/vhs/Imágenes/icons/ytube.png\" firefox --class WebApp-YouTube3674 --name WebApp-YouTube3674 --profile /home/vhs/.local/share/ice/firefox/YouTube3674 --no-remote \"https://www.youtube.com\"' &"
+              :onclick "sh -c 'XAPP_FORCE_GTKWINDOW_ICON=\"$HOME/Imágenes/icons/ytube.png\" firefox --class WebApp-YouTube3674 --name WebApp-YouTube3674 --profile $HOME/.local/share/ice/firefox/YouTube3674 --no-remote \"https://www.youtube.com\"' &"
         (image :path "${ICONS}/ytube.png"       :image-width 30 :image-height 30)))
 ))
 

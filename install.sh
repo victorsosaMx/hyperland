@@ -183,13 +183,9 @@ success "Paquetes AUR instalados"
 # =============================================================================
 # 3. HYPRPM PLUGINS
 # =============================================================================
-info "Instalando plugins de Hyprland (hyprexpo)..."
+info "Compilando plugins de Hyprland (hyprexpo + hyprfocus)..."
 
-hyprpm update
-hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm enable hyprexpo
-
-success "hyprexpo instalado y habilitado"
+bash "$(dirname "$0")/compile-plugins.sh"
 
 # =============================================================================
 # 4. VSFETCH

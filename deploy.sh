@@ -65,6 +65,12 @@ chmod +x ~/.config/hypr/scripts/gtk.sh
 chmod +x ~/.config/hypr/scripts/bar-switch.sh
 chmod +x ~/.config/hypr/scripts/install-updates.sh
 
+# Fallback: evita error "globbing: found no match" si aún no se ha aplicado ningún tema
+if [ ! -f ~/.config/hypr/generated-theme.conf ]; then
+    touch ~/.config/hypr/generated-theme.conf
+    info "generated-theme.conf creado vacío — corre apply-theme.sh para aplicar un tema"
+fi
+
 # =============================================================================
 # 2. WAYBAR
 # =============================================================================

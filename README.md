@@ -96,6 +96,12 @@ Setup personal de Hyprland sobre Arch Linux.
 ./install.sh
 ```
 
+> Incluye la compilación de plugins (`hyprexpo` + `hyprfocus`) via hyprpm.
+> Si Hyprland se actualiza y los plugins dejan de funcionar, recompilar con:
+> ```bash
+> ./compile-plugins.sh
+> ```
+
 ### Paso 2 — Aplicar dotfiles
 
 ```bash
